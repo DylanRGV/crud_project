@@ -30,19 +30,22 @@ public class UserController {
     public String getIndex(Model model) {
         return "index";
     }
-    @GetMapping("/home")
+    @GetMapping("/registration")
     public String getLogin(Model model) {
-        return "login";
+        return "signup";
     }
-    @GetMapping("/home")
+
+    @GetMapping("/size")
     public String getSize(Model model) {
         return "size";
     }
-    @GetMapping("/home")
+
+    @GetMapping("/email")
     public String getEmail(Model model) {
         return "email";
     }
-    @GetMapping("/home")
+
+    @GetMapping("/reference")
     public String getReference(Model model) {
         return "reference";
     }
@@ -53,10 +56,20 @@ public class UserController {
         return userService.getUsers();
     }
 
-    @PostMapping("/api/v1")
-    @ResponseBody
-    public void saveOrUpdateUser(@RequestBody User user) {
-        userService.saveOrUpdate(user);
+    @PostMapping("/registerUser")
+    public String registerUser(@ModelAttribute User user, Model model) {
+        try {
+            boolean registered = userService.registerNewUser(user);
+            if (!registered) {
+                model.addAttribute("error", "El usuario ya existe");
+                return "signup";
+            } else {
+                return "redirect:/users/home";
+            }
+        } catch (Exception e) {
+            model.addAttribute("error", "Error al registrar el usuario: " + e.getMessage());
+            return "signup";
+        }
     }
 
     @DeleteMapping("/api/v1/{userId}")
@@ -64,6 +77,4 @@ public class UserController {
     public void deleteUser(@PathVariable("userId") Long userId) {
         userService.delete(userId);
     }
-
-    // @PatchMapping
 }

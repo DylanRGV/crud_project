@@ -3,6 +3,7 @@ package com.example.crud.service;
 import com.example.crud.repository.UserRepository;
 import com.example.crud.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -27,6 +28,19 @@ public class UserService {
 
     public void delete(Long id) {
         userRepository.deleteById(id);
+    }
+
+    public boolean registerNewUser(User user){
+        try {
+            if(userRepository.existsByUsername(user.getUsername())){
+                return false;
+            }
+            userRepository.save(user);
+            return true;
+        } catch (DataIntegrityViolationException e) {
+            System.err.println("Error al registrar usuario: " + e.getMessage());
+            return false;
+        }
     }
 }
 

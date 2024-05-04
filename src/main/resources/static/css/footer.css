@@ -1,5 +1,14 @@
 
-.mi-footer{
-    background-color: rgba(0, 0, 0, 0.781);
-    color: white;
+.mi-footer {
+    background-color: #251e1e; /* Verde */
+    color: white; /* Texto blanco */
+    padding: 20px 0; /* Agrega algo de padding */
+}
+
+.mi-footer a {
+    color: #f1f1f1; /* Color de los enlaces para que contrasten con el fondo */
+}
+
+.mi-footer h3 {
+    border-bottom: 2px solid white; /* Subrayado para los títulos en el footer */
 }

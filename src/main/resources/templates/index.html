@@ -10,12 +10,12 @@
             integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
             crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="./abajito.css" />
+    <link rel="stylesheet" href="/css/footer.css"/>
 </head>
 <body>
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container-fluid">
-        <a class="navbar-brand" href="inicio.html">Tenis perros </a>
+        <a class="navbar-brand" href="http://localhost:8080/users/home">Tenis perros </a>
         <button
                 class="navbar-toggler"
                 type="button"
@@ -30,10 +30,10 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Inicio</a>
+                    <a class="nav-link active" aria-current="page" href="http://localhost:8080/users/home">Inicio</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="size.html">Tallas</a>
+                    <a class="nav-link" href="http://localhost:8080/users/size">Tallas</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a
@@ -47,31 +47,17 @@
                     </a>
                     <ul class="dropdown-menu">
                         <li>
-                            <a class="dropdown-item" href="login.html">Registro</a>
+                            <a class="dropdown-item" href="http://localhost:8080/users/login">Registro</a>
                         </li>
                         <li>
-                            <a class="dropdown-item" href="email.html"
+                            <a class="dropdown-item" href="http://localhost:8080/users/email"
                             >Envianos un correo</a
                             >
                         </li>
                         <li><hr class="dropdown-divider" /></li>
                     </ul>
                 </li>
-
-                <li class="nav-item">
-                    <a class="nav-link" href="catalogo.html">Catalogo</a>
-                </li>
             </ul>
-            <form class="d-flex" role="search">
-                <input
-                        class="form-control me-2"
-                        type="search"
-                        placeholder="Buscar"
-                        aria-label="Search"
-                />
-                <button class="btn btn-outline-success" type="submit">
-                    Buscar
-                </button>
             </form>
         </div>
     </div>
@@ -79,15 +65,15 @@
 <div id="carousel" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-inner">
         <div class="carousel-item active" data-bs-interval="3000">
-            <img src="./img/puma.jpg" class="d-block w-100" alt="" />
+            <img src="/img/puma.jpg" class="d-block w-100" alt="" />
         </div>
 
         <div class="carousel-item" data-bs-interval="3000">
-            <img src="./img/adidas2.jpg" class="d-block w-100" alt="..." />
+            <img src="/img/adidas2.jpg" class="d-block w-100" alt="..." />
         </div>
 
         <div class="carousel-item" data-bs-interval="3000">
-            <img src="./img/nike.jpg" class="d-block w-100" alt="..." />
+            <img src="/img/nike.jpg" class="d-block w-100" alt="..." />
         </div>
     </div>
     <button
@@ -109,7 +95,45 @@
         <span class="visually-hidden">Next</span>
     </button>
 </div>
-<footer></footer>
+<footer class="mi-footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6 col-md-3 item">
+                <br>
+                <h3>Servicios</h3>
+                <ul>
+                    <li><a href="">Terminos y condiciones</a></li>
+                    <li><a href="https://mail.google.com/">Correo</a></li>
+                    <li><a href="">Nuestros datos</a></li>
+                </ul>
+            </div>
+            <div class="col-sm-6 col-md-3 item">
+                <br>
+                <h3>Acerca de</h3>
+                <ul>
+                    <li><a href="#">Trabajo</a></li>
+                    <li><a href="http://localhost:8080/users/reference">Referencias bibliograficas</a></li>
+                </ul>
+            </div>
+            <div class="col-md-6 item text">
+                <br>
+                <h3>Tenis perros</h3>
+                <p>
+                    <b>Una página nueva que puede presentar tenis que llegaran a estar a la venta en un futuro proximo.</b>
+                </p>
+            </div>
+            <div class="col item social">
+                <pre></pre> <a href="#"><i class="icon ion-social-facebook"></i></a
+            ><a href="#"><i class="icon ion-social-twitter" ></i></a
+            ><a href="#"><i class="icon ion-social-snapchat"></i></a
+            ><a href="#"><i class="icon ion-social-instagram"></i></a>
+            </div>
+        </div>
+        <div style="text-align: center;">
+            <p class="copyright">Tenis perros© 2024</p>
+        </div>
+    </div>
+</footer>
 <script
         src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"

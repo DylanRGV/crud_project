@@ -9,7 +9,7 @@
             integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
             crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="css/abajito.css">
+    <link rel="stylesheet" href="/css/footer.css"/>
     <title>Tallas</title>
 
 </head>
@@ -18,7 +18,7 @@
 <nav class="navbar navbar-expand-lg">
 
     <div class="container-fluid">
-        <a class="navbar-brand" href="inicio.html">Tenis perros </a>
+        <a class="navbar-brand" href="http://localhost:8080/users/home">Tenis perros </a>
         <button
                 class="navbar-toggler"
                 type="button"
@@ -33,12 +33,12 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link active"color aria-current="page" href="inicio.html"
+                    <a class="nav-link active"color aria-current="page" href="http://localhost:8080/users/home"
                     >Inicio</a
                     >
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="size.html">Tallas</a>
+                    <a class="nav-link" href="http://localhost:8080/users/size">Tallas</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a
@@ -52,10 +52,10 @@
                     </a>
                     <ul class="dropdown-menu">
                         <li>
-                            <a class="dropdown-item" href="login.html">Registro</a>
+                            <a class="dropdown-item" href="http://localhost:8080/users/login">Registro</a>
                         </li>
                         <li>
-                            <a class="dropdown-item" href="email.html"
+                            <a class="dropdown-item" href="http://localhost:8080/users/email"
                             >Envianos un correo</a
                             >
                         </li>
@@ -70,25 +70,36 @@
 
 <br>
 <h1 style="text-align: center;">Listado de tallas</h1>
-<br>
-<center>
-    <img src="./img/tallas.png" class="d-block w-25" alt="Contacto"/>
 
-</center>
+<div style="text-align: center;">
+    <style>
+        .contenedor {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 70vh;
+        }
+    </style>
+    <div class="contenedor">
+        <img src="/img/tallas.png" alt="">
+    </div>
+
+
+</div>
 <br>
 <br>
-<center>
+<div style="text-align: center;">
     <br>
     <h1 style="text-align: center; border: 2px solid;">Guia de tallas de tenis</h1>
 
     <p style="border: 10px solid "> <b>Encuentra tu ajuste perfecto con nuestra guía de tallas detallada. Asegúrate de medir tu pie para una precisión máxima antes de hacer tu pedido.
-        Cómo medir tu pie:
+        Cómo medir tu pie:</b>
 
         Coloca una hoja de papel en el suelo contra una pared.
         Pon tu pie sobre la hoja con el talón tocando la pared.
         Marca con un lápiz el punto más largo de tu pie en la hoja.
         Mide desde el borde de la hoja hasta la marca y compara con nuestra tabla de tallas.</p>
-</center></b>
+</div></b>
 <br>
 <br>
 <br>
@@ -110,7 +121,7 @@
                     <h3>About</h3>
                     <ul>
                         <li><a href="#">Trabajo</a></li>
-                        <li><a href="reference.html">Referencias bibliograficas</a></li>
+                        <li><a href="http://localhost:8080/users/reference">Referencias bibliograficas</a></li>
                     </ul>
                 </div>
                 <div class="col-md-6 item text">
@@ -127,15 +138,16 @@
                 ><a href="#"><i class="icon ion-social-instagram"></i></a>
                 </div>
             </div>
-            <center>
+            <div style="text-align: center;">
                 <p class="copyright">Tenis perros© 2024</p>
-            </center>
+            </div>
         </div>
     </footer>
-    <script
-            src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-            crossorigin="anonymous"
-    ></script>
+</div>
+<script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"
+></script>
 </body>
 </html>
