@@ -22,13 +22,18 @@ public class UserService {
         return userRepository.findById(id);
     }
 
-    public void saveOrUpdate(User User){
-        userRepository.save(User);
+    public void saveOrUpdate(User user) {
+        userRepository.save(user);
     }
 
     public void delete(Long id) {
         userRepository.deleteById(id);
     }
+
+    public Optional<User> getUserById(Long id) {
+        return userRepository.findById(id);
+    }
+
 
     public boolean registerNewUser(User user){
         try {

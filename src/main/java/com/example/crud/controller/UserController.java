@@ -3,18 +3,21 @@ package com.example.crud.controller;
 import com.example.crud.entity.User;
 import com.example.crud.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Controller
 @RequestMapping(path = "/users")
 public class UserController {
-    private final UserService userService;
-
     @Autowired
+    private final UserService userService;
     public UserController(UserService userService){
         this.userService = userService;
     }
@@ -26,6 +29,12 @@ public class UserController {
         return "userList";
     }
 
+    @GetMapping("/userList")
+    public String showUserList(Model model) {
+        List<User> users = userService.getUsers();
+        model.addAttribute("users", users);
+        return "userList";
+    }
     @GetMapping("/home")
     public String getIndex(Model model) {
         return "index";
@@ -56,6 +65,7 @@ public class UserController {
         return userService.getUsers();
     }
 
+
     @PostMapping("/registerUser")
     public String registerUser(@ModelAttribute User user, Model model) {
         try {
@@ -72,9 +82,30 @@ public class UserController {
         }
     }
 
-    @DeleteMapping("/api/v1/{userId}")
-    @ResponseBody
-    public void deleteUser(@PathVariable("userId") Long userId) {
-        userService.delete(userId);
+    @PostMapping("/update")
+    public ResponseEntity<Object> updateUser(@ModelAttribute User user) {
+        Map<String, Object> response = new HashMap<>();
+        if (user.getUsersId() == null) {
+            response.put("success", false);
+            response.put("message", "User ID is missing");
+            return new ResponseEntity<>(response, HttpStatus.BAD_REQUEST);
+        }
+
+        userService.saveOrUpdate(user);
+        response.put("success", true);
+        response.put("message", "User updated successfully");
+        return ResponseEntity.ok(response);
     }
+
+    @DeleteMapping("/delete/{userId}")
+    public ResponseEntity<?> deleteUser(@PathVariable Long userId) {
+        userService.delete(userId);
+        Map<String, String> response = new HashMap<>();
+        response.put("message", "User deleted successfully");
+        return ResponseEntity.ok(response);
+    }
+
+
 }
+
+

@@ -13,58 +13,52 @@
     <link rel="stylesheet" href="/css/footer.css"/>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="http://localhost:8080/users/home">Tenis perros </a>
-            <button
-                    class="navbar-toggler"
-                    type="button"
-                    data-bs-toggle="collapse"
-                    data-bs-target="#navbarSupportedContent"
-                    aria-controls="navbarSupportedContent"
-                    aria-expanded="false"
-                    aria-label="Toggle navigation"
-            >
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="http://localhost:8080/users/home"
-                        >Inicio</a
-                        >
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="http://localhost:8080/users/size">Tallas</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a
-                                class="nav-link dropdown-toggle"
-                                href="#"
-                                role="button"
-                                data-bs-toggle="dropdown"
-                                aria-expanded="false"
-                        >
-                            Contacto
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li>
-                                <a class="dropdown-item" href="http://localhost:8080/users/login">Registro</a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item" href="http://localhost:8080/users/email"
-                                >Envianos un correo</a
-                                >
-                            </li>
-                            <li><hr class="dropdown-divider" /></li>
-                        </ul>
-                    </li>
-                </ul>
-                <form class="d-flex" role="search">
-                </form>
-            </div>
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="http://localhost:8080/users/home">Tenis perros</a>
+        <button
+                class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+        >
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="http://localhost:8080/users/home">Inicio</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="http://localhost:8080/users/userList">CRUD</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="http://localhost:8080/users/size">Tallas</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a
+                            class="nav-link dropdown-toggle"
+                            href="#"
+                            id="navbarDropdownMenuLink"
+                            role="button"
+                            data-bs-toggle="dropdown"
+                            aria-expanded="false"
+                    >
+                        Contacto
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <li><a class="dropdown-item" href="http://localhost:8080/users/registration">Registro</a></li>
+                        <li><a class="dropdown-item" href="http://localhost:8080/users/email">Envíanos un correo</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                    </ul>
+                </li>
+            </ul>
         </div>
-    </nav>
+    </div>
+</nav>
     <br>
     <h1>Registro</h1>
     <hr class="border- color:blue border-4 opacity-100" />
@@ -165,6 +159,7 @@
         <div class="col-12">
             <button class="btn btn-primary" type="submit">Aceptar y Enviar</button>
         </div>
+
     </form>
     <br>
     <br>

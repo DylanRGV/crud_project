@@ -9,16 +9,62 @@
             integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
             crossorigin="anonymous"
     />
-    <link rel="stylesheet" type="test/css" href="../static/css/users_management.css" />
+    <link rel="stylesheet" href="/css/footer.css"/>
     <title>Document</title>
 </head>
 <body>
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="http://localhost:8080/users/home">Tenis perros</a>
+        <button
+                class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+        >
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="http://localhost:8080/users/home">Inicio</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="http://localhost:8080/users/userList">CRUD</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a
+                            class="nav-link dropdown-toggle"
+                            href="#"
+                            id="navbarDropdownMenuLink"
+                            role="button"
+                            data-bs-toggle="dropdown"
+                            aria-expanded="false"
+                    >
+                        Contacto
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <li><a class="dropdown-item" href="http://localhost:8080/users/registration">Registro</a></li>
+                        <li><a class="dropdown-item" href="http://localhost:8080/users/email">Envíanos un correo</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
 <main>
     <div>
+        <br>
+        <br>
         <h1>CRUD Usuarios</h1>
     </div>
     <div class="main-first_container">
-        <button type="button" class="btn btn-success">Añadir</button>
+        <button type="button" class="add-btn btn btn-success">Añadir</button>
         <div class="search">
             <input
                     type="text"
@@ -55,14 +101,14 @@
                 <td th:text="${user.usersId != null ? user.usersId : ''}">ID</td>
                 <td th:text="${user.name != null ? user.name : ''}">Nombre</td>
                 <td th:text="${user.lastname != null ? user.lastname : ''}">Apellido</td>
-                <td th:text="${user.state != null ? user.state : ''}">Estado</td>
                 <td th:text="${user.username != null ? user.username : ''}">Usuario</td>
                 <td th:text="${user.city != null ? user.city : ''}">Ciudad</td>
+                <td th:text="${user.state != null ? user.state : ''}">Estado</td>
                 <td th:text="${user.zip != null ? user.zip : ''}">Código Postal</td>
                 <td>
                     <div>
-                        <button th:value="${user.usersId != null ? user.usersId : ''}" type="button" class="btn btn-primary">Editar</button>
-                        <button th:value="${user.usersId != null ? user.usersId : ''}" type="button" class="btn btn-danger">Eliminar</button>
+                        <button th:value="${user.usersId != null ? user.usersId : ''}" type="button" class="edit-btn btn btn-primary">Editar</button>
+                        <button th:value="${user.usersId != null ? user.usersId : ''}" type="button" class="delete-btn btn btn-danger">Eliminar</button>
                     </div>
                 </td>
             </tr>
@@ -70,12 +116,159 @@
             </tbody>
         </table>
     </section>
-</main>
 
+    <div class="modal" id="editModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Editar Usuario</h5>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <form id="editUserForm">
+                        <input
+                                type="hidden"
+                                id="editUserId"
+                                name="usersId"
+                        >
+
+                        <div class="form-group">
+                            <label>Nombre:</label>
+                            <input
+                                    type="text"
+                                    class="form-control"
+                                    id="editName"
+                                    name="name"
+                            >
+
+                            <label class="form-label">Apellidos</label>
+                            <input
+                                    type="text"
+                                    class="form-control"
+                                    id="editLastName"
+                                    name="lastname"
+                                    required
+                            />
+
+                            <label class="form-label">Usuario</label>
+                            <input
+                                    type="text"
+                                    class="form-control"
+                                    id="editUsername"
+                                    name="username"
+                                    aria-describedby="inputGroupPrepend"
+                                    required
+                            />
+
+                            <label class="form-label">Ciudad</label>
+                            <input
+                                    type="text"
+                                    class="form-control"
+                                    name="city"
+                                    id="editCity"
+                                    required
+                            />
+
+                            <label class="form-label">Estado</label>
+                            <select id="editState" class="form-select" name="state" required>
+                                <option selected disabled value="">Seleccione...</option>
+                                <option>Jalisco</option>
+                                <option>Ciudad de México</option>
+                                <option>Aguascalientes</option>
+                                <option>Veracrú</option>
+                                <option>Nuevo León</option>
+                                <option>Yucatán</option>
+                                <option>Sinaloa</option>
+                            </select>
+
+                            <label class="form-label">Código postal</label>
+                            <input
+                                    type="text"
+                                    class="form-control"
+                                    id="editZip"
+                                    name="zip"
+                                    required
+                            />
+                        </div>
+
+                        <button type="button" id="saveChanges" class="btn btn-primary">Guardar Cambios</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</main>
+<div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <footer class="mi-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6 col-md-3 item">
+                    <br>
+                    <h3>Servicios</h3>
+                    <ul>
+                        <li><a href="">Terminos y condiciones</a></li>
+                        <li><a href="https://mail.google.com/">Correo</a></li>
+                        <li><a href="">Nuestros datos</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-6 col-md-3 item">
+                    <br>
+                    <h3>Acerca de</h3>
+                    <ul>
+                        <li><a href="#">Trabajo</a></li>
+                        <li><a href="http://localhost:8080/users/reference">Referencias bibliograficas</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-6 item text">
+                    <br>
+                    <h3>Tenis perros</h3>
+                    <p>
+                        <b>Una página nueva que puede presentar tenis que llegaran a estar a la venta en un futuro proximo.</b>
+                    </p>
+                </div>
+                <div style="text-align: center;">
+                    <div class="col item social">
+                        <pre></pre>
+                        <a href="#"><i class="icon ion-social-facebook"></i></a>
+                        <a href="#"><i class="icon ion-social-twitter" ></i></a>
+                        <a href="#"><i class="icon ion-social-snapchat"></i></a>
+                        <a href="#"><i class="icon ion-social-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div style="text-align: center;">
+            <p class="copyright">Tenis perros© 2024</p>
+        </div>
+    </footer>
+</div>
 <script
         src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"
+
 ></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script src="/js/modal-functionality.js"></script>
 </body>
 </html>
