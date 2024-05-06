@@ -65,6 +65,12 @@ public class UserController {
         return userService.getUsers();
     }
 
+    @GetMapping("/search")
+    public String searchUserById(@RequestParam("users_Id") Long id, Model model) {
+        User user = userService.findUserById(id);
+        model.addAttribute("users_id", user != null ? List.of(user) : List.of());
+        return "userList"; // Asume que tienes una vista llamada userList.html
+    }
 
     @PostMapping("/registerUser")
     public String registerUser(@ModelAttribute User user, Model model) {

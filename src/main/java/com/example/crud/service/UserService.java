@@ -47,6 +47,10 @@ public class UserService {
             return false;
         }
     }
+
+    public User findUserById(Long id) {
+        return userRepository.findById(id).orElse(null);
+    }
 }
 
 
